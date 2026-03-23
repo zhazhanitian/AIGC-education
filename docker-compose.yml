@@ -1,0 +1,17 @@
+services:
+  nano-banana:
+    build: .
+    image: nano-banana-pro:latest
+    container_name: nano-banana
+    restart: unless-stopped
+    ports:
+      # 宿主机端口:容器端口
+      - "50004:3000"
+    env_file:
+      - ./server/.env
+    volumes:
+      # 持久化图片与 metadata（避免容器重启后“图裂/数据丢失”）
+      - nano_banana_storage:/app/server/storage
+
+volumes:
+  nano_banana_storage:

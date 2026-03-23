@@ -5,6 +5,11 @@ node_modules
 .env
 .DS_Store
 *.log
+
+# 不参与构建的目录（减小构建上下文）
+docs
+paper-rewriter
+
 client/node_modules
 server/node_modules
 server/storage/images/*
@@ -12,4 +17,5 @@ server/storage/tasks.json
 .vscode
 .idea
 dist
+
 

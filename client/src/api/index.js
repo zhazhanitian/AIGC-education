@@ -48,11 +48,16 @@ export const authAPI = {
 }
 
 // Chat API (Grsai)
-const CHAT_API_KEY = 'sk-8a6a8adc181b48b8a6b6014254a0f0c4'
-const CHAT_API_BASE = 'https://grsaiapi.com/v1'
+// ⚠️ 不要在前端代码里硬编码密钥，使用 Vite 环境变量注入：VITE_CHAT_API_KEY / VITE_CHAT_API_BASE
+const CHAT_API_BASE = import.meta.env.VITE_CHAT_API_BASE || 'https://grsaiapi.com/v1'
+const CHAT_API_KEY = import.meta.env.VITE_CHAT_API_KEY || ''
 
 export const chatAPI = {
   sendMessage: async (messages, model = 'gemini-3-pro', stream = false) => {
+    if (!CHAT_API_KEY) {
+      throw new Error('未配置 VITE_CHAT_API_KEY（请在 client/.env 中设置）')
+    }
+
     const response = await fetch(`${CHAT_API_BASE}/chat/completions`, {
       method: 'POST',
       headers: {

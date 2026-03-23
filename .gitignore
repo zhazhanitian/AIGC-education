@@ -1,0 +1,11 @@
+﻿node_modules/
+**/node_modules/
+*.zip
+
+# secrets
+.env
+server/.env
+
+# runtime data
+server/storage/images/
+server/storage/*.json

@@ -167,7 +167,7 @@ const store = useImageStore()
 
 const prompt = ref('')
 const aspectRatio = ref('auto')
-const imageSize = ref('1K')
+const imageSize = ref('4K')
 const textareaRef = ref(null)
 const fileInputRef = ref(null)
 const referenceImages = ref([])
@@ -234,8 +234,8 @@ const restoreFormFromStore = () => {
     aspectRatio.value = newState.aspectRatio || 'auto'
   }
   
-  if (imageSize.value !== (newState.imageSize || '1K')) {
-    imageSize.value = newState.imageSize || '1K'
+  if (imageSize.value !== (newState.imageSize || '4K')) {
+    imageSize.value = newState.imageSize || '4K'
   }
   
   // 参考图比较复杂，这里简化处理，直接赋值（如果有）

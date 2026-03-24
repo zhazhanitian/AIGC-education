@@ -23,7 +23,7 @@ export const useImageStore = defineStore('image', () => {
   const formState = ref({
     prompt: '',
     aspectRatio: 'auto',
-    imageSize: '1K',
+    imageSize: '4K',
     referenceImages: []
   })
 
